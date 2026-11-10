@@ -1,0 +1,163 @@
+{
+  "_not": "Ana kaynak /root/atasoy-dev/site/ortak/projeler.json (portfolyo). Burada yalnız portfolyoda OLMAYAN projeler ve profil için üstüne yazılanlar var. Metinler İngilizce.",
+
+  "bolumler": [
+    {
+      "id": "products",
+      "kicker": "Products",
+      "baslik": "Things people pay for, or will",
+      "giris": "Each one is designed, written, shipped and kept running by me, on one server.",
+      "kapak": ["teamplanos", "dothetalk", "contacteam"],
+      "kisa": ["medowl", "fotoyol", "atpansiyon", "santiye", "lojistik", "simmuh", "videostudio", "restoran"]
+    },
+    {
+      "id": "games",
+      "kicker": "Games",
+      "baslik": "Made to be played",
+      "giris": "One puzzle heading for the App Store, the rest built for friends.",
+      "kapak": ["littlelight"],
+      "kisa": ["futbasball", "mimar", "hocam", "atis"]
+    },
+    {
+      "id": "clients",
+      "kicker": "Client work",
+      "baslik": "Under the name Chain Media",
+      "giris": "Sites and internal systems for brands, each one drawn for its owner.",
+      "musteri": ["chainmedia", "uluabat", "efor", "maya", "brickwise", "gnr", "denizkiliclab", "wprebuilds"]
+    },
+    {
+      "id": "bench",
+      "kicker": "Workbench",
+      "baslik": "Tools and experiments",
+      "giris": "Smaller things, mostly built because I needed them.",
+      "liste": ["syncyourpods", "klavyeisik", "theseus", "samvoice", "oda", "saharadari", "halk", "stickman"]
+    }
+  ],
+
+  "ustune": {
+    "teamplanos": {"gorsel_tarafi": "sag"},
+    "dothetalk": {"gorsel_tarafi": "sol"},
+    "contacteam": {"gorsel_tarafi": "sag"},
+    "medowl": {"tel_oncelik": true},
+    "littlelight": {"tel_oncelik": true},
+    "santiye": {
+      "ad": "Şantiyeah",
+      "link": "https://santiyeah.com",
+      "durum": "test",
+      "gorsel_yol": "uretim/ekran/santiyeah.png"
+    },
+    "restoran": {"link": null, "tel_oncelik": true}
+  },
+
+  "ek": {
+    "lojistik": {
+      "ad": "Lojistatistik", "tur": "urun", "durum": "yapim", "platform": ["Web"],
+      "link": "https://lojistik.atasoy.dev", "gorsel_yol": "uretim/ekran/lojistik.png",
+      "renk": {"zemin": "#1E2633", "yazi": "#F3EFE6", "vurgu": "#E8622C"},
+      "en": {
+        "kisa": "Operations software for freight forwarders",
+        "metin": "Road freight, sea and air forwarding and warehousing in one system. The office plans loads, drivers update jobs from their phones, and customers follow a shipment through a link without signing in."
+      }
+    },
+    "simmuh": {
+      "ad": "Simmuh", "tur": "urun", "durum": "yapim", "platform": ["Web"],
+      "link": null, "gorsel_yol": "uretim/ekran/simmuh.png",
+      "renk": {"zemin": "#EEF1F4", "yazi": "#14202B", "vurgu": "#0F6E55"},
+      "en": {
+        "kisa": "Bookkeeping for the business owner, not the accountant",
+        "metin": "Customer and supplier accounts, stock, invoices, cash and bank, cheques and expenses, in plain words and on calm screens."
+      }
+    },
+    "videostudio": {
+      "ad": "Video Studio", "tur": "urun", "durum": "yapim", "platform": ["Web"],
+      "link": "https://video.atasoy.dev", "gorsel_yol": null,
+      "renk": {"zemin": "#F6E3D6", "yazi": "#2A1A14", "vurgu": "#E2725B"},
+      "en": {
+        "kisa": "AI video tools for wedding filmmakers",
+        "metin": "A rough cut assembled from hours of raw wedding footage, and cinematic clips made from still photos."
+      }
+    },
+    "futbasball": {
+      "ad": "futbasball", "tur": "oyun", "durum": "yayinda", "platform": ["Web"],
+      "link": "https://futbasball.site", "gorsel_yol": "uretim/ekran/futbasball.png",
+      "renk": {"zemin": "#FFF1E0", "yazi": "#1F2A30", "vurgu": "#F07A2B"},
+      "en": {
+        "kisa": "Footballers and basketball players in one draft",
+        "metin": "Draft eleven-a-side or five-a-side from a mixed pool. Messi can play point guard and Jokić centre-back, at a cost. Solo, against the computer, or 1v1 with a friend."
+      }
+    },
+    "mimar": {
+      "ad": "Mimar", "tur": "oyun", "durum": "prototip", "platform": ["Web"],
+      "link": "https://mimar.atasoy.dev/oyun/", "gorsel_yol": null,
+      "renk": {"zemin": "#DCEAF2", "yazi": "#1C2A44", "vurgu": "#F2A23A"},
+      "en": {
+        "kisa": "A cozy sim about designing homes for a town",
+        "metin": "Take a family's brief, design their house in a dollhouse cross-section, watch it go up and see them move in."
+      }
+    },
+    "hocam": {
+      "ad": "Hocam!", "tur": "oyun", "durum": "yapim", "platform": ["PC"],
+      "link": null, "gorsel_yol": null,
+      "renk": {"zemin": "#0F3B2E", "yazi": "#F4F1E6", "vurgu": "#E9C46A"},
+      "en": {
+        "kisa": "A football manager for a group of friends",
+        "metin": "Everyone runs a club in the same league: transfers, tactics, match days and the arguments after."
+      }
+    },
+    "atis": {
+      "ad": "ATIŞ", "tur": "oyun", "durum": "prototip", "platform": ["PC"],
+      "link": null, "gorsel_yol": null,
+      "renk": {"zemin": "#16181D", "yazi": "#EDEDED", "vurgu": "#E8D44D"},
+      "en": {
+        "kisa": "A round-based tactical shooter, in Godot",
+        "metin": "Five-on-five for friends. Every scene and script is plain text, so the whole game is written without opening the editor."
+      }
+    },
+    "denizkiliclab": {
+      "ad": "Deniz Kılıç Lab", "tur": "musteri", "durum": "yayinda", "platform": ["Web"],
+      "link": "https://denizkiliclab.com", "gorsel_yol": "uretim/ekran/denizkiliclab.png",
+      "renk": {"zemin": "#14110E", "yazi": "#EDEAE4", "vurgu": "#E5533A"},
+      "en": {
+        "kisa": "A portfolio for a photographer and filmmaker",
+        "metin": "Dark and cinematic, work grouped by year, with a private upload door for new reels."
+      }
+    },
+    "wprebuilds": {
+      "ad": "WordPress rebuilds", "tur": "musteri", "durum": "yapim", "platform": ["Web"],
+      "link": null, "gorsel_yol": null,
+      "renk": {"zemin": "#ECEAE4", "yazi": "#1E1E1E", "vurgu": "#5B6CFF"},
+      "en": {
+        "kisa": "Four German business sites, moved off WordPress",
+        "metin": "An events agency, an investment firm, a law office and an academy, rebuilt by hand on plain pages driven by JSON."
+      }
+    },
+    "syncyourpods": {
+      "ad": "SyncYourPods", "tur": "arac", "durum": "test", "platform": ["Windows", "iOS"],
+      "en": {"kisa": "Plays a PC's sound on AirPods, through your iPhone"}
+    },
+    "klavyeisik": {
+      "ad": "Klavye Işık", "tur": "arac", "durum": "yayinda", "platform": ["Windows"],
+      "en": {"kisa": "Keyboard lighting without the vendor's suite"}
+    },
+    "samvoice": {
+      "ad": "SAM Voice", "tur": "arac", "durum": "yayinda", "platform": ["Web", "Windows"],
+      "en": {"kisa": "Self-hosted voice chat for friends, with noise filtering"}
+    },
+    "oda": {
+      "ad": "oda.", "tur": "arac", "durum": "prototip", "platform": ["Web"],
+      "en": {"kisa": "Video meetings that hold up on a weak connection"}
+    },
+    "saharadari": {
+      "ad": "Saha Radarı", "tur": "arac", "durum": "yayinda", "platform": ["Bot"],
+      "en": {"kisa": "Clusters football news and posts the stories to X"}
+    },
+    "halk": {
+      "ad": "Folk dance app", "tur": "arac", "durum": "prototip", "platform": ["iOS", "Android"],
+      "en": {"kisa": "Folk dances, lesson by lesson, checked by the camera"}
+    },
+    "stickman": {
+      "ad": "stickman30days", "tur": "arac", "durum": "yapim", "platform": ["Shorts"],
+      "en": {"kisa": "Thirty-day short-form series, drawn entirely in code"}
+    }
+  }
+}
