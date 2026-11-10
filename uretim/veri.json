@@ -14,9 +14,9 @@
       "id": "games",
       "kicker": "Games",
       "baslik": "Made to be played",
-      "giris": "One puzzle heading for the App Store, the rest built for friends.",
+      "giris": "A puzzle heading for the App Store, and a couple of browser games.",
       "kapak": ["littlelight"],
-      "kisa": ["futbasball", "mimar", "hocam", "atis"]
+      "kisa": ["futbasball", "mimar"]
     },
     {
       "id": "clients",

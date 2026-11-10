@@ -36,9 +36,6 @@
 <p><a href="https://futbasball.site"><img src="assets/kart-futbasball.svg" alt="futbasball — Footballers and basketball players in one draft" width="49.4%"></a>
 <a href="https://mimar.atasoy.dev/oyun/"><img src="assets/kart-mimar.svg" alt="Mimar — A cozy sim about designing homes for a town" width="49.4%"></a></p>
 
-<p><img src="assets/kart-hocam.svg" alt="Hocam! — A football manager for a group of friends" width="49.4%">
-<img src="assets/kart-atis.svg" alt="ATIŞ — A round-based tactical shooter, in Godot" width="49.4%"></p>
-
 
 <br>
 
