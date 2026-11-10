@@ -37,7 +37,15 @@
   "ustune": {
     "teamplanos": {"gorsel_tarafi": "sag"},
     "dothetalk": {"gorsel_tarafi": "sol"},
-    "contacteam": {"gorsel_tarafi": "sag"},
+    "contacteam": {
+      "gorsel_tarafi": "sag",
+      "gorsel_yol": "uretim/ekran/contacteam-kirp.png",
+      "renk": {"zemin": "#F3F3F5", "yazi": "#1D1D1F", "vurgu": "#FF6A3D"},
+      "en": {
+        "kisa": "The sales desk built around your team",
+        "metin": "Instead of squeezing a team into an off-the-shelf CRM, it is set up around how they sell. Every customer from WhatsApp, Instagram, site chat and lead forms is tied to a rep and comes back to the same person. Calls, messages and outcomes sit on one screen."
+      }
+    },
     "medowl": {"tel_oncelik": true},
     "littlelight": {"tel_oncelik": true},
     "santiye": {

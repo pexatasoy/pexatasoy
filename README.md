@@ -12,7 +12,7 @@
 
 <p><a href="https://dothetalk.com"><img src="assets/kapak-dothetalk.svg" alt="dothetalk — AI that talks to customers for a business" width="100%"></a></p>
 
-<p><a href="https://contacteam.com"><img src="assets/kapak-contacteam.svg" alt="ContacTeam — A customer desk for sales teams" width="100%"></a></p>
+<p><a href="https://contacteam.com"><img src="assets/kapak-contacteam.svg" alt="ContacTeam — The sales desk built around your team" width="100%"></a></p>
 
 <p><a href="https://medowl.app"><img src="assets/kart-medowl.svg" alt="Medowl — A free medication reminder, from an owl" width="49.4%"></a>
 <a href="https://chainmedia.co/fotoyol/"><img src="assets/kart-fotoyol.svg" alt="Fotoyol — Moves phone photos to a disk, organised and verified" width="49.4%"></a></p>
