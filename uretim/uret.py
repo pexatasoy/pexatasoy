@@ -12,6 +12,7 @@ import io
 import json
 import os
 import re
+import urllib.parse
 import sys
 from xml.sax.saxutils import escape
 
@@ -369,6 +370,93 @@ def kisa(p, no, durum):
     return s
 
 
+# ───────────────────────── açık kaynak kartı (yarım genişlik) ─────────────────────────
+
+def ad_satirlari(ad, en, boy):
+    """CamelCase adı en fazla iki satıra böler (sığıyorsa tek satır); yazı boyunu sığana kadar küçültür."""
+    parca = re.findall(r"[A-Z][a-z]*|[^A-Z]+", ad)
+    while boy > 24:
+        if genislik(ad, "baslik", boy) + boy * 0.55 <= en:
+            return [ad], boy
+        if len(parca) > 1:
+            k = min(range(1, len(parca)), key=lambda i: abs(len("".join(parca[:i])) - len("".join(parca[i:]))))
+            ust, alt = "".join(parca[:k]), "".join(parca[k:])
+            if max(genislik(ust, "baslik", boy), genislik(alt, "baslik", boy) + boy * 0.55) <= en:
+                return [ust, alt], boy
+        boy -= 2
+    return [ad], boy
+
+
+def acik_kart(p, a, no):
+    """Açık kaynak projesi: lisans hapı, repo adresi; görsel ya sağda telefon ya da altta pencere."""
+    W, H = 800, 560
+    r = a["renk"]
+    s = Svg(W, H, f'{p["ad"]} — {a["en"]["kisa"]} (open source, {a["lisans"]})')
+    s.defs.append(GOLGE)
+    kart_zemini(s, {"renk": r}, 32)
+    x0 = 44
+    koyu = parlaklik(r["zemin"]) < 0.2
+    vurgu = r["vurgu"] if karsitlik(r["vurgu"], r["zemin"]) > 1.3 else r["yazi"]
+    yerlesim = a.get("yerlesim", "sag")
+    gorsel = os.path.join(KOK, a["gorsel"])
+
+    if yerlesim == "sag":
+        telefon(s, 556, 150, 196, resim(gorsel, 186, 412), 6, id_="ap")
+        kol = 400
+    else:
+        kol = W - 2 * x0
+
+    # üst satır: numara + "açık kaynak", sağda lisans hapı
+    s.yazi(x0, 66, f"NO. {no:02d}  ·  OPEN SOURCE", "mono", 16, r["yazi"], 0.6, aralik=2.4)
+    lis = a["lisans"].upper()
+    lw = genislik(lis, "mono", 14, 2) + 30
+    s.ekle(f'<rect x="{W - 40 - lw:.1f}" y="47" width="{lw:.1f}" height="28" rx="14" fill="{vurgu}" fill-opacity=".14" stroke="{vurgu}" stroke-opacity=".45"/>')
+    s.yazi(W - 40 - lw / 2, 66, lis, "mono", 14, vurgu, 1, hiza="middle", aralik=2)
+
+    # başlık (uzun ad iki satıra bölünür) + _
+    satirlar, bb = ad_satirlari(p["ad"], kol, 66)
+    y = 98 + bb * 0.82
+    for i, satir in enumerate(satirlar):
+        tw = s.yazi(x0 - 2, y, satir, "baslik", bb, r["yazi"])
+        if i == len(satirlar) - 1:
+            alt_cizgi(s, x0 - 2 + tw, y, bb, vurgu)
+        y += bb * 0.98
+    y += 34 - bb * 0.98 + bb * 0.2
+
+    for satir in sar(a["en"]["kisa"], "italik", 28, kol)[:2]:
+        s.yazi(x0, y, satir, "italik", 28, r["yazi"])
+        y += 36
+
+    if yerlesim == "sag":
+        y += 8
+        satirlar = sar(a["en"]["metin"], "serif", 19, kol)
+        sigan = max(0, int((H - 126 - y) // 27))
+        if len(satirlar) > sigan:
+            satirlar = satirlar[:sigan]
+            if satirlar:
+                satirlar[-1] = satirlar[-1].rstrip(".,;") + "…"
+        for satir in satirlar:
+            s.yazi(x0, y, satir, "serif", 19, r["yazi"], 0.72)
+            y += 27
+        alt_y = H - 74
+    else:
+        alt_y = y + 18
+
+    xs = cipler(s, x0, alt_y, a["etiket"], r["yazi"], 13)
+    s.yazi(x0, alt_y + 40, f'github.com/{a["repo"]}  ↗', "mono", 15, r["yazi"], 0.85)
+
+    if yerlesim == "alt":
+        gy = alt_y + 70
+        gw = W - 2 * x0
+        gh = H - gy + 40
+        s.defs.append(f'<clipPath id="ap"><rect x="{x0}" y="{gy}" width="{gw}" height="{gh}" rx="16"/></clipPath>')
+        s.ekle(f'<g filter="url(#golge)"><rect x="{x0}" y="{gy}" width="{gw}" height="{gh}" rx="16" fill="#000"/></g>')
+        s.ekle(f'<image clip-path="url(#ap)" x="{x0}" y="{gy}" width="{gw}" height="{gh}" href="{resim(gorsel, gw, gh)}" preserveAspectRatio="xMidYMin slice"/>')
+        s.ekle(f'<rect x="{x0 + .75}" y="{gy + .75}" width="{gw - 1.5}" height="{gh}" rx="16" fill="none" stroke="#fff" stroke-opacity="{.14 if koyu else .5}" stroke-width="1.5"/>')
+    s.ekle("</g>")
+    return s
+
+
 # ───────────────────────── müşteri kartı ─────────────────────────
 
 def musteri(p, no, durum):
@@ -577,6 +665,15 @@ def main():
               '<a href="https://chainmedia.co"><b>chainmedia.co</b></a> &nbsp;·&nbsp; '
               f'<a href="{e(kisi["iletisim_link"])}">{e(kisi["en"]["iletisim_baslik"])} ↗</a></p>')
 
+    v = json.load(open(os.path.join(KOK, "uretim", "veri.json")))
+    acik = v.get("acik_kaynak", {})
+    acik_yayinda = v.get("acik_kaynak_yayinda", False) or os.environ.get("ACIK_ONIZLE") == "1"
+    acik_projeler = set(acik) if acik_yayinda else set()
+    bolumler = [b for b in bolumler if b["id"] != "opensource" or acik_yayinda]
+    for b in bolumler:
+        if b.get("liste"):
+            b["liste"] = [k for k in b["liste"] if k not in acik_projeler]
+
     no = 1
     for bi, b in enumerate(bolumler, 1):
         for koyu in (False, True):
@@ -602,6 +699,22 @@ def main():
                     parca.append(gorsel_link(p, ad, "49.4%"))
                     no += 1
                 md += ["<p>" + "\n".join(parca) + "</p>", ""]
+
+        if b.get("acik"):
+            parca = []
+            for k in b["acik"]:
+                p, ak = projeler[k], acik[k]
+                ad = f"acik-{k}"
+                boyut[ad] = acik_kart(p, ak, no).bitir(os.path.join(ASSETS, ad + ".svg"))
+                img = f'<img src="assets/{ad}.svg" alt="{e(p["ad"] + " — " + ak["en"]["kisa"])}" width="49.4%">'
+                parca.append(f'<a href="https://github.com/{ak["repo"]}">{img}</a>')
+                no += 1
+            md += ["<p>" + "\n".join(parca) + "</p>", ""]
+            yildiz = " &nbsp; ".join(
+                f'<a href="https://github.com/{acik[k]["repo"]}"><img src="https://img.shields.io/github/stars/{acik[k]["repo"]}'
+                f'?style=flat-square&label={urllib.parse.quote(projeler[k]["ad"][:12] + ("…" if len(projeler[k]["ad"]) > 12 else ""))}&logo=github" alt="{e(projeler[k]["ad"])} stars"></a>'
+                for k in b["acik"])
+            md += [f'<p align="center">{yildiz}</p>', ""]
 
         if b.get("liste"):
             liste = [projeler[k] for k in b["liste"]]

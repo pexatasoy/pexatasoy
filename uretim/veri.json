@@ -19,6 +19,13 @@
       "kisa": ["futbasball", "mimar"]
     },
     {
+      "id": "opensource",
+      "kicker": "Open source",
+      "baslik": "Read it, fork it, build it",
+      "giris": "Two tools I use every day, with the code out in the open.",
+      "acik": ["syncyourpods", "klavyeisik"]
+    },
+    {
       "id": "clients",
       "kicker": "Client work",
       "baslik": "Under the name Chain Media",
@@ -33,6 +40,24 @@
       "liste": ["syncyourpods", "klavyeisik", "theseus", "samvoice", "oda", "saharadari", "halk", "stickman"]
     }
   ],
+
+  "_acik_kaynak_not": "Açık kaynak bölümü acik_kaynak_yayinda true olunca README'ye girer ve bu projeler Tezgâh'tan çıkar. Önizleme: ACIK_ONIZLE=1 python3 uretim/uret.py",
+  "acik_kaynak_yayinda": false,
+  "acik_kaynak": {
+    "syncyourpods": {
+      "repo": "pexatasoy/syncyourpods", "lisans": "MIT", "yerlesim": "sag", "gorsel": "uretim/ekran/syp-iphone.png",
+      "renk": {"zemin": "#F2F2F7", "yazi": "#1D1D1F", "vurgu": "#007AFF"},
+      "etiket": ["Windows", "iOS", "Rust", "Swift"],
+      "en": {"kisa": "Your PC's sound on your AirPods, through your iPhone",
+             "metin": "AirPods hop between your phone and your PC by themselves. The PC streams raw audio over Wi-Fi in 3 ms packets, and the phone plays it, stepping aside whenever something else starts."}
+    },
+    "klavyeisik": {
+      "repo": "pexatasoy/no-more-stupid-keyboard-settings-for-real", "lisans": "GPL-2.0", "yerlesim": "alt", "gorsel": "uretim/ekran/nmsks.png",
+      "renk": {"zemin": "#0B0B12", "yazi": "#ECECF4", "vurgu": "#B69CFF"},
+      "etiket": ["Windows", "Rust"],
+      "en": {"kisa": "SteelSeries keyboard lighting, without installing SteelSeries GG"}
+    }
+  },
 
   "ustune": {
     "teamplanos": {"gorsel_tarafi": "sag"},
