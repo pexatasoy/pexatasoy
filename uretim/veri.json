@@ -42,7 +42,7 @@
   ],
 
   "_acik_kaynak_not": "Açık kaynak bölümü acik_kaynak_yayinda true olunca README'ye girer ve bu projeler Tezgâh'tan çıkar. Önizleme: ACIK_ONIZLE=1 python3 uretim/uret.py",
-  "acik_kaynak_yayinda": false,
+  "acik_kaynak_yayinda": true,
   "acik_kaynak": {
     "syncyourpods": {
       "repo": "pexatasoy/syncyourpods", "lisans": "MIT", "yerlesim": "sag", "gorsel": "uretim/ekran/syp-iphone.png",
