@@ -44,7 +44,7 @@
 <p><a href="https://github.com/pexatasoy/syncyourpods"><img src="assets/acik-syncyourpods.svg" alt="SyncYourPods — Your PC's sound on your AirPods, through your iPhone" width="49.4%"></a>
 <a href="https://github.com/pexatasoy/no-more-stupid-keyboard-settings-for-real"><img src="assets/acik-klavyeisik.svg" alt="NoMoreStupidKeyboardSettingsForReal — SteelSeries keyboard lighting, without installing SteelSeries GG" width="49.4%"></a></p>
 
-<p align="center"><a href="https://github.com/pexatasoy/syncyourpods"><img src="https://img.shields.io/github/stars/pexatasoy/syncyourpods?style=flat-square&label=SyncYourPods&logo=github" alt="SyncYourPods stars"></a> &nbsp; <a href="https://github.com/pexatasoy/no-more-stupid-keyboard-settings-for-real"><img src="https://img.shields.io/github/stars/pexatasoy/no-more-stupid-keyboard-settings-for-real?style=flat-square&label=NoMoreStupid%E2%80%A6&logo=github" alt="NoMoreStupidKeyboardSettingsForReal stars"></a></p>
+<p align="center"><a href="https://github.com/pexatasoy/syncyourpods"><img src="https://img.shields.io/github/stars/pexatasoy/syncyourpods?style=flat-square&cacheSeconds=3600&label=SyncYourPods&logo=github" alt="SyncYourPods stars"></a> &nbsp; <a href="https://github.com/pexatasoy/no-more-stupid-keyboard-settings-for-real"><img src="https://img.shields.io/github/stars/pexatasoy/no-more-stupid-keyboard-settings-for-real?style=flat-square&cacheSeconds=3600&label=NoMoreStupid%E2%80%A6&logo=github" alt="NoMoreStupidKeyboardSettingsForReal stars"></a></p>
 
 
 <br>

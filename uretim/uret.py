@@ -712,7 +712,7 @@ def main():
             md += ["<p>" + "\n".join(parca) + "</p>", ""]
             yildiz = " &nbsp; ".join(
                 f'<a href="https://github.com/{acik[k]["repo"]}"><img src="https://img.shields.io/github/stars/{acik[k]["repo"]}'
-                f'?style=flat-square&label={urllib.parse.quote(projeler[k]["ad"][:12] + ("…" if len(projeler[k]["ad"]) > 12 else ""))}&logo=github" alt="{e(projeler[k]["ad"])} stars"></a>'
+                f'?style=flat-square&cacheSeconds=3600&label={urllib.parse.quote(projeler[k]["ad"][:12] + ("…" if len(projeler[k]["ad"]) > 12 else ""))}&logo=github" alt="{e(projeler[k]["ad"])} stars"></a>'
                 for k in b["acik"])
             md += [f'<p align="center">{yildiz}</p>', ""]
 
