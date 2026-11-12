@@ -11,6 +11,7 @@ import base64
 import io
 import json
 import os
+import re
 import sys
 from xml.sax.saxutils import escape
 
@@ -411,6 +412,28 @@ def musteri(p, no, durum):
 
 # ───────────────────────── tezgâh listesi (açık/koyu) ─────────────────────────
 
+def ad_yaz(s, ad, x, b, en, yaz):
+    """Proje adını sütuna sığdırır: sığmazsa CamelCase'i iki satıra böler (NoMoreStupidKeyboard / SettingsForReal)."""
+    if genislik(ad, "baslik2", 36) <= en:
+        s.yazi(x, b, ad, "baslik2", 36, yaz)
+        return
+    parca = re.findall(r"[A-Z][a-z]*|[^A-Z]+", ad)
+    if len(parca) > 1:
+        # iki satırın genişliği en yakın olacak bölme noktası
+        k = min(range(1, len(parca)), key=lambda i: abs(len("".join(parca[:i])) - len("".join(parca[i:]))))
+        ust, alt = "".join(parca[:k]), "".join(parca[k:])
+        boy = 30
+        while boy > 18 and max(genislik(ust, "baslik2", boy), genislik(alt, "baslik2", boy)) > en:
+            boy -= 1
+        s.yazi(x, b - boy * 0.52, ust, "baslik2", boy, yaz)
+        s.yazi(x, b + boy * 0.5, alt, "baslik2", boy, yaz)
+        return
+    boy = 36
+    while boy > 18 and genislik(ad, "baslik2", boy) > en:
+        boy -= 1
+    s.yazi(x, b, ad, "baslik2", boy, yaz)
+
+
 def tezgah(liste, ilk_no, durum, koyu):
     yaz = BEYAZ if koyu else "#111215"
     W = 1600
@@ -423,7 +446,7 @@ def tezgah(liste, ilk_no, durum, koyu):
             s.ekle(f'<rect x="0" y="{y}" width="{W}" height="1.5" fill="{yaz}" fill-opacity=".12"/>')
         b = y + satir / 2 + 10
         s.yazi(0, b - 1, f"{ilk_no + i:02d}", "mono", 20, yaz, 0.45, aralik=2)
-        s.yazi(84, b + 2, p["ad"], "baslik2", 36, yaz)
+        ad_yaz(s, p["ad"], 84, b + 2, 366, yaz)
         aciklama = p["en"]["kisa"]
         while genislik(aciklama, "serif", 27) > 660:
             aciklama = aciklama.rsplit(" ", 1)[0].rstrip(",") + "…"

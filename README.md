@@ -58,7 +58,7 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/h-bench-dark.svg"><img src="assets/h-bench-light.svg" alt="Workbench — Tools and experiments" width="100%"></picture>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/bench-dark.svg"><img src="assets/bench-light.svg" alt="Workbench: SyncYourPods — Plays a PC's sound on AirPods, through your iPhone; Klavye Işık — Keyboard lighting without the vendor's suite; Theseus — A desktop companion for solo builders; SAM Voice — Self-hosted voice chat for friends, with noise filtering; oda. — Video meetings that hold up on a weak connection; Saha Radarı — Clusters football news and posts the stories to X; Folk dance app — Folk dances, lesson by lesson, checked by the camera; stickman30days — Thirty-day short-form series, drawn entirely in code" width="100%"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/bench-dark.svg"><img src="assets/bench-light.svg" alt="Workbench: SyncYourPods — Plays a PC's sound on AirPods, through your iPhone; NoMoreStupidKeyboardSettingsForReal — SteelSeries keyboard lighting without installing GG; Theseus — A desktop companion for solo builders; SAM Voice — Self-hosted voice chat for friends, with noise filtering; oda. — Video meetings that hold up on a weak connection; Saha Radarı — Clusters football news and posts the stories to X; Folk dance app — Folk dances, lesson by lesson, checked by the camera; stickman30days — Thirty-day short-form series, drawn entirely in code" width="100%"></picture>
 
 
 <br>

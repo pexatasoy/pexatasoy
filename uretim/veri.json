@@ -144,8 +144,8 @@
       "en": {"kisa": "Plays a PC's sound on AirPods, through your iPhone"}
     },
     "klavyeisik": {
-      "ad": "Klavye Işık", "tur": "arac", "durum": "yayinda", "platform": ["Windows"],
-      "en": {"kisa": "Keyboard lighting without the vendor's suite"}
+      "ad": "NoMoreStupidKeyboardSettingsForReal", "tur": "arac", "durum": "yayinda", "platform": ["Windows"],
+      "en": {"kisa": "SteelSeries keyboard lighting without installing GG"}
     },
     "samvoice": {
       "ad": "SAM Voice", "tur": "arac", "durum": "yayinda", "platform": ["Web", "Windows"],
